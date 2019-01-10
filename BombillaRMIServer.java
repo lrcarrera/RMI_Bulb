@@ -1,5 +1,8 @@
 import java.rmi.*;
 import java.rmi.server.*;
+import java.rmi.registry.Registry;
+import java.rmi.registry.LocateRegistry;
+
 public class BombillaRMIServer {
   public static void main(String args[]) {
     System.out.println("Cargando Servicio RMI");
@@ -19,7 +22,9 @@ public class BombillaRMIServer {
 
 
       //Invocar servidor rmiregistry
-      LocateRegistry.createRegistry (1099);
+      LocateRegistry.createRegistry(1098);
+      //LocateRegistry.createRegistry(1099);
+
 
 
     //Thread thread = new Thread (servicioBombilla);

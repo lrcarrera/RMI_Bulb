@@ -1,17 +1,21 @@
 import java.rmi.*;
 import java.rmi.server.UnicastRemoteObject;
-public class BombillaRMIServant extends UnicastRemoteObject implements BombillaRMI, Runnable
+import java.util.*;
+
+public class BombillaRMIServant extends UnicastRemoteObject implements BombillaRMI/*, Runnable*/
 {
   private Vector<TemperaturaListener> listaListeners = new Vector<TemperaturaListener>();
 
     private static final long serialVersionUID = 1;
     private boolean luzOn;
     private volatile double temperatura;
+    private double consumption;
+    private double temperature;
 
     // Constructor.
     public BombillaRMIServant() throws RemoteException {
         setBombilla(false); // Asignar valor por defecto = off
-        setTemperatura(2800);
+        //setTemperatura(2800);
     }
 
 
@@ -86,4 +90,23 @@ public class BombillaRMIServant extends UnicastRemoteObject implements BombillaR
     public boolean getBombilla() {
         return(luzOn);
     }
+    /*  public void checkConsumption() throws RemoteException;
+      public boolean setConsumption(double consumption) throws RemoteException;
+      public void checkTemperature() throws RemoteException;
+      public boolean setTemperature(double temperature) throws RemoteException;*/
+    public double checkConsumption() throws RemoteException{
+      return consumption;
+    }
+    public double checkTemperature() throws RemoteException{
+      return temperature;
+    }
+    public void setConsumption(double consumption) throws RemoteException{
+      this.consumption = consumption;
+    }
+    public void setTemperature(double temperature) throws RemoteException{
+      this.temperature = temperature;
+    }
+
+
+
 }

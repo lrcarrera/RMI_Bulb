@@ -1,5 +1,8 @@
 import java.rmi.*;
-public class BombillaRMIClient extends RemoteObject{
+import java.rmi.server.UnicastRemoteObject;
+import java.util.*;
+
+public class BombillaRMIClient{
 
 
     public static void main(String args[])
@@ -25,6 +28,13 @@ public class BombillaRMIClient extends RemoteObject{
           servicioBombilla.off();
           // Mirar si el estado ha cambiado
           System.out.println("Estado bombilla: " + servicioBombilla.isOn() );
+
+          servicioBombilla.setTemperature(50.30);
+          servicioBombilla.setConsumption(5000.00);
+
+          System.out.println("Consumo bombilla: " + String.valueOf(servicioBombilla.checkConsumption()) );
+          System.out.println("Temperature bombilla: " + String.valueOf(servicioBombilla.checkTemperature()));
+
       } catch (NotBoundException nbe) {
           System.err.println("No existe el servicio de bombilla en el registro!");
       } catch (RemoteException re) {
