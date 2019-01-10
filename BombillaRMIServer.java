@@ -27,8 +27,8 @@ public class BombillaRMIServer {
 
 
 
-    //Thread thread = new Thread (servicioBombilla);
-      //thread.start();
+      Thread thread = new Thread (servicioBombilla);
+      thread.start();
     }
       catch (RemoteException re) {
       System.err.println("Remote Error - " + re);

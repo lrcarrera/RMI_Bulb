@@ -31,6 +31,11 @@ public class BombillaRMIClient{
 
           servicioBombilla.setTemperature(50.30);
           servicioBombilla.setConsumption(5000.00);
+          bombilla.off();
+          bombilla.on();
+          bombilla.off();
+          bombilla.on();
+          bombilla.off();
 
           System.out.println("Consumo bombilla: " + String.valueOf(servicioBombilla.checkConsumption()) );
           System.out.println("Temperature bombilla: " + String.valueOf(servicioBombilla.checkTemperature()));
